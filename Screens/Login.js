@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 
 export default function Login({ navigation }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     // Implement your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
-    navigation.navigate('Home');
+    console.log("Username:", username);
+    console.log("Password:", password);
+    navigation.navigate("UserRoutes", { userType: "user" });
+
     // Navigate to another screen upon successful login
     // navigation.navigate('Home');
   };
@@ -44,35 +51,35 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   inputContainer: {
     marginBottom: 20,
-    width: '80%',
+    width: "80%",
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     padding: 10,
     marginBottom: 10,
     borderRadius: 5,
   },
   button: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     paddingVertical: 10,
     paddingHorizontal: 35,
     borderRadius: 5,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

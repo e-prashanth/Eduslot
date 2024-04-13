@@ -1,16 +1,19 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
 
+
 const Navbar = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Image
-        source={require("/logo.png")} // Path to your logo image
+        source={require("../assets/logo.png")} // Path to your logo image
         style={styles.logo}
       />
-      <TouchableOpacity onPress={() => console.log("Profile clicked")}>
+      <TouchableOpacity onPress={() => {navigation.navigate("UserPreviousBokkings");}}>
         <Image
-          source={require("/ProfileIcon.png")} // Path to your profile icon image
+          source={require("../assets/ProfileIcon.png")} // Path to your profile icon image
           style={styles.profileIcon}
         />
       </TouchableOpacity>
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#e0e0e0", // Border color
   },
   logo: {
-    width: 100, // Adjust width as needed
+    width: 140, // Adjust width as needed
     height: 40, // Adjust height as needed
   },
   profileIcon: {
