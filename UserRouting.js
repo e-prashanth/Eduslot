@@ -1,9 +1,9 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import UserDashboardScreen from "./Screens/UserDashboardScreen";
-import UserSlotBokkingScreen from './Screens/UserSlotBokkingScreen';
+import UserSlotBookingScreen from './Screens/UserSlotBookingScreen';
 import UserViewTimeTabelScreen from './Screens/UserViewTimeTabelScreen';
-import UserPreviousBokkingsScreen from './Screens/UserPreviousBokkingScreen';
+import UserPreviousBookingsScreen from './Screens/UserPreviousBookingScreen';
 const Stack = createNativeStackNavigator();
 
 const UserRoutes = () => {
@@ -15,14 +15,14 @@ const UserRoutes = () => {
         options={{ title: "User Dashboard", headerShown:false }}
       />
       <Stack.Screen
-        name="UserSlotBokking"
-        component={UserSlotBokkingScreen}
-        options={{ title: "User SlotBokking", headerShown:false }}
+        name="UserSlotBooking"
+        component={UserSlotBookingScreen}
+        options={{ title: "User SlotBooking", headerShown:false }}
       />
       <Stack.Screen
-        name="UserPreviousBokkings"
-        component={UserPreviousBokkingsScreen}
-        options={{ title: "User PreviousBokkings", headerShown:false }}
+        name="UserPreviousBookings"
+        component={UserPreviousBookingsScreen}
+        options={{ title: "User PreviousBookings", headerShown:false }}
       />
       <Stack.Screen
         name="UserViewTimeTable"

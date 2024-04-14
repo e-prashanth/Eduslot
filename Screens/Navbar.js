@@ -11,7 +11,7 @@ const Navbar = () => {
         source={require("../assets/logo.png")} // Path to your logo image
         style={styles.logo}
       />
-      <TouchableOpacity onPress={() => {navigation.navigate("UserPreviousBokkings");}}>
+      <TouchableOpacity onPress={() => {navigation.navigate("Profile");}}>
         <Image
           source={require("../assets/ProfileIcon.png")} // Path to your profile icon image
           style={styles.profileIcon}

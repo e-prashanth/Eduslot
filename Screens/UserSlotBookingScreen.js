@@ -4,7 +4,7 @@ import { StyleSheet, Text, View , Button} from 'react-native';
 export default function Home({navigation}) {
   return (
     <View style={styles.container}>
-      <Text>This is Previous Bokking Screen</Text>
+      <Text>This is Booking Screen</Text>
       <StatusBar style="auto" />
     </View>
   );

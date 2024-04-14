@@ -5,11 +5,11 @@ import Navbar from "./Navbar";
 
 const Dashboard = () => {
   const navigation = useNavigation();
-  const handleBokking = (cardId) => {
-    navigation.navigate("UserSlotBokking");
+  const handleBooking = (cardId) => {
+    navigation.navigate("UserSlotBooking");
   };
   const handlePreviousBooking = () => {
-    navigation.navigate("UserPreviousBokkings");
+    navigation.navigate("UserPreviousBookings");
   };
 
   const handleViewTimeTable = () => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
     <View style={styles.container}>
       <Navbar />
       <View style={styles.cardsContainer}>
-        <TouchableOpacity style={styles.card} onPress={() => handleBokking()}>
+        <TouchableOpacity style={styles.card} onPress={() => handleBooking()}>
           <Text style={styles.cardText}> Book A {"\n"} Slot</Text>
           <Image
             style={styles.nextpageicon}
