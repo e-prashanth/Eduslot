@@ -5,6 +5,7 @@ import DepartmentFacilitiesScreen from "./Screens/DepartmentFacilitiesScreen";
 import UserViewTimeTabelScreen from "./Screens/UserViewTimeTabelScreen";
 import CreateTimeTableScreen from './Screens/CreateTimeTableScreen';
 
+
 const Stack = createNativeStackNavigator();
 
 const AdminRoutes = () => {

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet , TouchableOpacity } from 'react-native';
 import Navbar from './Navbar.js';
+import { useNavigation } from "@react-navigation/native";
 const DepartmentFacilitiesScreen = () => {
-  const [nameOfDepartment, setnameOfDepartment] = useState('Inforamtion Technology (IT)');
+  const [nameOfDepartment, setnameOfDepartment] = useState('');
   const [numberOfRooms, setnumberOfRooms] = useState(25);
   const [roomNumbers, setroomNumbers] = useState([]);
   const [numberOfLabs, setnumberOfLabs] = useState(0);
   const [labNumbers, setlabNumbers] = useState([]);
   const [yearsInDepartment, setyearsInDepartment] = useState([]);
-
+  const navigation = useNavigation();
   const handleSubmit = () => {
     console.log('Inputs submitted:', nameOfDepartment, numberOfRooms, roomNumbers, numberOfLabs, labNumbers, yearsInDepartment);
-};
+    navigation.navigate('AdminDashboard');
+  };
 
   return (
     <>
@@ -66,7 +68,9 @@ const DepartmentFacilitiesScreen = () => {
           onChangeText={setyearsInDepartment}
         />
       </View>
-      <Button title="Submit" onPress={handleSubmit} />
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>Submit</Text>
+      </TouchableOpacity>
     </View>
     </>
   );
@@ -76,17 +80,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor:"white"
   },
   mainHeading: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 30,
   },
   inputContainer: {
-    marginBottom: 15,
+    marginBottom: 25,
   },
   heading: {
-    fontSize: 18,
+    fontSize: 15,
     marginBottom: 5,
   },
   input: {
@@ -94,6 +99,19 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 5,
     padding: 10,
+  },
+  button: {
+    backgroundColor: "#061228",
+    paddingVertical: 10,
+    paddingHorizontal: 35,
+    borderRadius: 5,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "bold",
   },
 });
 
