@@ -16,7 +16,7 @@ export default function Login({ navigation }) {
     // Implement your login logic here
     console.log("Username:", username);
     console.log("Password:", password);
-    navigation.navigate("UserRoutes", { userType: "user" });
+    navigation.navigate("AdminRoutes", { userType: "user" });
 
     // Navigate to another screen upon successful login
     // navigation.navigate('Home');
