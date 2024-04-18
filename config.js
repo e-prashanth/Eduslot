@@ -4,6 +4,7 @@ export const API_URL_DEPARTMENT =  `${BASE_URL}/Eduslot/department`
 export const API_URL_LABS = `${BASE_URL}/Eduslot/labs`
 export const API_URL_CLASSES = `${BASE_URL}/Eduslot/classes`
 export const API_URL_YEARS = `${BASE_URL}/Eduslot/years`
+export const API_URL_ADMIN = `${BASE_URL}/Eduslot/admin`
 export let USER_ID = null
 export let token = null
 

@@ -45,7 +45,7 @@ export default function Profile({ navigation }) {
       const data = await response.json();
       setName(data["user"].name);
       setEmail(data["user"].email);
-      console.log(data); // Update state with fetched user data
+      console.log(data); 
       console.log(name);
       console.log(Email);
     } catch (error) {
