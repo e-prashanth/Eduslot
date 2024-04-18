@@ -57,7 +57,7 @@ export default function Login({ navigation }) {
     // }
     setUserId('660e74ac7433d6f3673525d5');
     // setToken('');
-    navigation.navigate("UserRoutes", { userType: "user" }); 
+    navigation.navigate("AdminRoutes", { userType: "user" }); 
   };
 
   return (

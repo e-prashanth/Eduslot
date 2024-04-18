@@ -15,6 +15,7 @@ import {
   API_URL_CLASSES,
   API_URL_DEPARTMENT,
   API_URL_LABS,
+  API_URL_YEARS,
 } from "../config.js";
 const DepartmentFacilitiesScreen = () => {
   const [nameOfDepartment, setnameOfDepartment] = useState("");
@@ -57,30 +58,41 @@ const DepartmentFacilitiesScreen = () => {
           body: JSON.stringify({
             departmentName: nameOfDepartment,
             labsCount: numberOfLabs,
-            classesCount : numberOfRooms
+            classesCount: numberOfRooms,
           }),
         }
       );
       if (!departmentResponse.ok) {
         Alert.alert("Failed", "Failed to create department");
-        console.log(departmentResponse)
+        console.log(departmentResponse);
         throw new Error("Failed to create department");
       }
       const departmentData = await departmentResponse.json();
-      const departmentId = departmentData._id;
+      const departmentId = departmentData["department"]._id;
       console.log("ID:", departmentData);
-      await createLabs(departmentId, labNumbersArray);
-      await createClasses(departmentId, roomNumbersArray);
-
-      
+      await createLabs(
+        departmentId,
+        labNumbersArray,
+        departmentData["department"].departmentName
+      );
+      await createClasses(
+        departmentId,
+        roomNumbersArray,
+        departmentData["department"].departmentName
+      );
+      await createYears(
+        departmentId,
+        yearsInDepartmentArray,
+        departmentData["department"].departmentName
+      );
       Alert.alert("Done!", "Department Facilities Created Successfully");
-      // navigation.navigate("AdminDashboard");
+      navigation.goBack();
     } catch (error) {
       console.error(error);
     }
     navigation.navigate("AdminDashboard");
   };
-  const createLabs = async (departmentId, labNumbersArray) => {
+  const createLabs = async (departmentId, labNumbersArray, departmentName) => {
     labNumbersArray.forEach(async (i) => {
       try {
         const createLabsResponse = await fetch(`${API_URL_LABS}/add-lab`, {
@@ -90,6 +102,7 @@ const DepartmentFacilitiesScreen = () => {
           },
           body: JSON.stringify({
             departmentId: departmentId,
+            departmentName: departmentName,
             labName: i,
           }),
         });
@@ -99,17 +112,46 @@ const DepartmentFacilitiesScreen = () => {
     });
   };
 
-  const createClasses = async (departmentId, roomNumbersArray) => {
+  const createClasses = async (
+    departmentId,
+    roomNumbersArray,
+    departmentName
+  ) => {
     roomNumbersArray.forEach(async (i) => {
       try {
-        const createLabsResponse = await fetch(`${API_URL_CLASSES}/add-class`, {
+        const createClassesResponse = await fetch(`${API_URL_CLASSES}/add-class`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             departmentId: departmentId,
+            departmentName: departmentName,
             classNumber: parseInt(i),
+          }),
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  };
+
+  const createYears = async (
+    departmentId,
+    yearsInDepartmentArray,
+    departmentName
+  ) => {
+    yearsInDepartmentArray.forEach(async (i) => {
+      try {
+        const createYearsResponse = await fetch(`${API_URL_YEARS}/add-year`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            departmentId: departmentId,
+            departmentName: departmentName,
+            yearName: i,
           }),
         });
       } catch (error) {
