@@ -15,42 +15,60 @@ const AdminDashboard = () => {
   const handleViewTimeTable = () => {
     navigation.navigate("ViewTimeTable");
   };
+  const handleCreateUser = () => {
+    navigation.navigate("CreateUser");
+  };
 
   return (
     <>
-    <Navbar />
-    <View style={styles.container}>
-      
-      <View style={styles.cardsContainer}>
-        <TouchableOpacity style={styles.card} onPress={() => handleCreateFacilities()}>
-          <Text style={styles.cardText}> Create{"\n"} Department{"\n"} Facilities</Text>
-          <Image
-            style={styles.nextpageicon}
-            source={require("../assets/nextPage30.png")} // Path to your profile icon image
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.card, styles.card2]}
-          onPress={() => handleCreateTimeTable()}
-        >
-          <Text style={styles.cardText}>Create Time{"\n"}Table</Text>
-          <Image
-            style={styles.nextpageicon}
-            source={require("../assets/nextPage30.png")} // Path to your profile icon image
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.card, styles.card3]}
-          onPress={() => handleViewTimeTable()}
-        >
-          <Text style={styles.cardText}>View Time{"\n"}Tables</Text>
-          <Image
-            style={styles.nextpageicon}
-            source={require("../assets/nextPage30.png")} // Path to your profile icon image
-          />
-        </TouchableOpacity>
+      <Navbar />
+      <View style={styles.container}>
+        <View style={styles.cardsContainer}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => handleCreateFacilities()}
+          >
+            <Text style={styles.cardText}>
+              {" "}
+              Create{"\n"} Department{"\n"} Facilities
+            </Text>
+            <Image
+              style={styles.nextpageicon}
+              source={require("../assets/nextPage30.png")} // Path to your profile icon image
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.card, styles.card2]}
+            onPress={() => handleCreateTimeTable()}
+          >
+            <Text style={styles.cardText}>Create Time{"\n"}Table</Text>
+            <Image
+              style={styles.nextpageicon}
+              source={require("../assets/nextPage30.png")} // Path to your profile icon image
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.card, styles.card3]}
+            onPress={() => handleViewTimeTable()}
+          >
+            <Text style={styles.cardText}>View Time{"\n"}Tables</Text>
+            <Image
+              style={styles.nextpageicon}
+              source={require("../assets/nextPage30.png")} // Path to your profile icon image
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.card, styles.card4]}
+            onPress={() => handleCreateUser()}
+          >
+            <Text style={styles.cardText}>Create A {"\n"}User</Text>
+            <Image
+              style={styles.nextpageicon}
+              source={require("../assets/nextPage30.png")} // Path to your profile icon image
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
     </>
   );
 };
@@ -82,12 +100,15 @@ const styles = StyleSheet.create({
   card3: {
     backgroundColor: "#06122899",
   },
+  card4: {
+    backgroundColor: "#06122870",
+  },
   nextpageicon: {
     marginRight: 10,
     alignSelf: "flex-end",
   },
   cardText: {
-    marginBottom: 10 ,
+    marginBottom: 10,
     fontSize: 25,
     marginLeft: 20,
     fontWeight: "500",

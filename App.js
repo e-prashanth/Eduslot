@@ -1,10 +1,12 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginPage from "./Screens/Login";
-import ProfileScreen from './Screens/ProfileScreen';
+import ProfileScreen from "./Screens/ProfileScreen";
+import CreateUserScreen from './Screens/CreateUserScreen';
 import AdminRoutes from "./AdminRouting";
 import UserRoutes from "./UserRouting";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +24,7 @@ const App = () => {
       // For demonstration, let's assume the server returns the user type as "admin" or "user"
       // const response = await fetch("your-api-endpoint");
       // const data = await response.json();
-      setUserType('admin');
+      setUserType("admin");
     } catch (error) {
       console.error("Error fetching user data:", error);
       // Handle error if necessary
@@ -32,8 +34,21 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
-        <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="Login"
+          component={LoginPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreateUser"
+          component={CreateUserScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="AdminRoutes"
           component={AdminRoutes}
